@@ -8,11 +8,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      #jobs required for the build
+      #build jobs
       - name: Build Jobs
         run: echo Build Jobs
         
-  # Run security scans
+  # Security scans
   scan:
     needs: build
     name: scan
@@ -39,11 +39,11 @@ jobs:
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v1
 
-  # Deploy the app
+  # Deploy 
   deploy:
     name: Deploy
     needs: scan
     runs-on: ubuntu-latest
 
     steps:
-    - run: echo "Deploying the app.."
+    - run: echo "Deploying!"
